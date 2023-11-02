@@ -20,7 +20,7 @@ export default function Switcher() {
         <>
             <DarkModeSwitch
                 style={{
-                color: isActive ? 'black' : 'white',}}
+                color: isActive ? 'black' : 'white', }}
                 checked={darkSide}
                 onChange={toggleDarkMode}
                 size={30}

@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import Switcher from "../../config/Switcher";
+import  { AuthContext } from "../../provider/AuthProvider";
 
 
 const Navbar = () => {
-
+    const {brandName}= useContext(AuthContext)
     const navitem = <>
         <li><a>Item 1</a></li>
         <li><a>Item 3</a></li>
@@ -20,7 +22,7 @@ const Navbar = () => {
                         {navitem}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost normal-case text-xl">{brandName}</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
