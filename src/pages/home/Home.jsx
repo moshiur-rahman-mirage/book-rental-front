@@ -1,9 +1,10 @@
-import React from 'react';
+
+import Carousel from '../../components/Carousel/Carousel';
 
 const Home = () => {
     return (
-        <div className='max-w-7xl'>
-            Home
+        <div className=''>
+           <Carousel/>
         </div>
     );
 };

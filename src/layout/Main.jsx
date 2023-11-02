@@ -5,9 +5,13 @@ import Footer from '../shared/Footer/Footer';
 const Main = () => {
     return (
         <div>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
+            <div className='min-h-100%'>
+                <Navbar className=''/>
+                <div className=''>
+                    <Outlet />
+                </div>
+            </div>
+            <Footer />
         </div>
     );
 };
