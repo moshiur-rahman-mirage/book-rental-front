@@ -13,8 +13,8 @@ const Login = () => {
                             </h1>
                             <form className="space-y-4 md:space-y-6" > {/*onSubmit={handleLogin} */}
                                 <div>
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-neutral ">Your email</label>
-                                    <input type="email" name="email" id="email" className=" border bg-transparent border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required="" />
+                                    <label htmlFor="id" className="block mb-2 text-sm font-medium text-neutral ">Your University ID</label>
+                                    <input type="text" name="id" id="id" className=" border bg-transparent border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="X000000000" required="" />
                                 </div>
                                 <div>
                                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-neutral ">Password</label>
@@ -26,10 +26,6 @@ const Login = () => {
                                         Don’t have an account yet? <Link to="/signup" className="font-medium text-primary-600 underline ">Sign up</Link>
                                     </p>
                                 </div>
-                                {/* <div className="flex items-center justify-between gap-4">
-                                    <p>Login With Google ?</p>
-                                    <button onClick={handleGoogleSignIn} className="btn "><AiFillGoogleCircle className="text-3xl rounded-lg"></AiFillGoogleCircle></button>
-                                </div> */}
                             </form>
                         </div>
                     </div>

@@ -1,0 +1,255 @@
+[
+    {
+      "title": "Mathematics for Beginners",
+      "author": "John Doe",
+      "publication_year": 2020,
+      "ISBN": "1234567890",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Advanced Algebra",
+      "author": "Jane Smith",
+      "publication_year": 2019,
+      "ISBN": "0987654321",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Geometry Made Easy",
+      "author": "David Brown",
+      "publication_year": 2018,
+      "ISBN": "5432109876",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Calculus Essentials",
+      "author": "Laura White",
+      "publication_year": 2021,
+      "ISBN": "9876543210",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Statistics 101",
+      "author": "Michael Johnson",
+      "publication_year": 2017,
+      "ISBN": "1357924680",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Number Theory Explained",
+      "author": "Sarah Green",
+      "publication_year": 2016,
+      "ISBN": "2468135790",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Linear Algebra Basics",
+      "author": "Robert Lee",
+      "publication_year": 2022,
+      "ISBN": "0123456789",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Probability and Randomness",
+      "author": "Emily Davis",
+      "publication_year": 2019,
+      "ISBN": "7654321098",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Mathematics in Everyday Life",
+      "author": "Sophia Clark",
+      "publication_year": 2020,
+      "ISBN": "1111111111",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Advanced Calculus",
+      "author": "Daniel Carter",
+      "publication_year": 2019,
+      "ISBN": "2222222222",
+      "subject": "Mathematics"
+    },
+    {
+      "title": "Physics: Fundamentals and Applications",
+      "author": "Mark Johnson",
+      "publication_year": 2020,
+      "ISBN": "1234567890",
+      "subject": "Science"
+    },
+    {
+      "title": "Chemistry Made Simple",
+      "author": "Jessica White",
+      "publication_year": 2018,
+      "ISBN": "0987654321",
+      "subject": "Science"
+    },
+    {
+      "title": "Biology: A Comprehensive Guide",
+      "author": "Sarah Miller",
+      "publication_year": 2019,
+      "ISBN": "5432109876",
+      "subject": "Science"
+    },
+    {
+      "title": "Environmental Science Explained",
+      "author": "David Brown",
+      "publication_year": 2021,
+      "ISBN": "9876543210",
+      "subject": "Science"
+    },
+    {
+      "title": "Astronomy and Astrophysics",
+      "author": "Laura Smith",
+      "publication_year": 2017,
+      "ISBN": "1357924680",
+      "subject": "Science"
+    },
+    {
+      "title": "Geology: The Earth's Story",
+      "author": "Michael Johnson",
+      "publication_year": 2016,
+      "ISBN": "2468135790",
+      "subject": "Science"
+    },
+    {
+      "title": "Neuroscience: Unlocking the Brain",
+      "author": "Robert Lee",
+      "publication_year": 2022,
+      "ISBN": "0123456789",
+      "subject": "Science"
+    },
+    {
+      "title": "Chemical Engineering Principles",
+      "author": "Emily Davis",
+      "publication_year": 2019,
+      "ISBN": "7654321098",
+      "subject": "Science"
+    },
+    {
+      "title": "History of Ancient Civilizations",
+      "author": "John Smith",
+      "publication_year": 2020,
+      "ISBN": "3333333333",
+      "subject": "History"
+    },
+    {
+      "title": "The World Wars: A Comprehensive Study",
+      "author": "Jane Johnson",
+      "publication_year": 2018,
+      "ISBN": "4444444444",
+      "subject": "History"
+    },
+    {
+      "title": "Renaissance: Art and Culture",
+      "author": "David Brown",
+      "publication_year": 2019,
+      "ISBN": "5555555555",
+      "subject": "History"
+    },
+    {
+      "title": "Modern History: From Industrialization to Today",
+      "author": "Laura White",
+      "publication_year": 2021,
+      "ISBN": "6666666666",
+      "subject": "History"
+    },
+    {
+      "title": "The American Revolution: Heroes and Battles",
+      "author": "Michael Davis",
+      "publication_year": 2017,
+      "ISBN": "7777777777",
+      "subject": "History"
+    },
+    {
+      "title": "The Age of Empires: Global Impact",
+      "author": "Sarah Lee",
+      "publication_year": 2016,
+      "ISBN": "8888888888",
+      "subject": "History"
+    },
+    {
+      "title": "Medieval History: Knights and Castles",
+      "author": "Robert Smith",
+      "publication_year": 2022,
+      "ISBN": "9999999999",
+      "subject": "History"
+    },
+    {
+      "title": "The Renaissance: Art and Innovation",
+      "author": "Emily Johnson",
+      "publication_year": 2019,
+      "ISBN": "0000000000",
+      "subject": "History"
+    },
+    {
+      "title": "Classic Literature: Timeless Tales",
+      "author": "Mark Davis",
+      "publication_year": 2020,
+      "ISBN": "1111111111",
+      "subject": "Literature"
+    },
+    {
+      "title": "Contemporary Literature: Modern Voices",
+      "author": "Jessica White",
+      "publication_year": 2018,
+      "ISBN": "2222222222",
+      "subject": "Literature"
+    },
+    {
+      "title": "Poetry: Expressions in Verse",
+      "author": "Sarah Miller",
+      "publication_year": 2019,
+      "ISBN": "3333333333",
+      "subject": "Literature"
+    },
+    {
+      "title": "Shakespearean Plays: A Literary Masterpiece",
+      "author": "David Brown",
+      "publication_year": 2021,
+      "ISBN": "4444444444",
+      "subject": "Literature"
+    },
+    {
+      "title": "Short Stories: Brief and Impactful",
+      "author": "Laura Smith",
+      "publication_year": 2017,
+      "ISBN": "5555555555",
+      "subject": "Literature"
+    },
+    {
+      "title": "Literary Criticism: Analyzing Texts",
+      "author": "Michael Johnson",
+      "publication_year": 2016,
+      "ISBN": "6666666666",
+      "subject": "Literature"
+    },
+    {
+      "title": "American Literature: A Journey Through Time",
+      "author": "Robert Lee",
+      "publication_year": 2022,
+      "ISBN": "7777777777",
+      "subject": "Literature"
+    },
+    {
+      "title": "World Literature: Diverse Narratives",
+      "author": "Emily Davis",
+      "publication_year": 2019,
+      "ISBN": "8888888888",
+      "subject": "Literature"
+    },
+    {
+      "title": "Introduction to Python Programming",
+      "author": "John Doe",
+      "publication_year": 2020,
+      "ISBN": "1234567890",
+      "subject": "Computer Science"
+    },
+    {
+      "title": "Data Structures and Algorithms",
+      "author": "Jane Smith",
+      "publication_year": 2019,
+      "ISBN": "0987654321",
+      "subject": "Computer Science"
+    }
+  ]
+

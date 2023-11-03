@@ -6,12 +6,14 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Navbar = () => {
     const { brandName } = useContext(AuthContext)
     const navitem = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li><a>Book List</a></li>
+        <li><a>About Us</a></li>
+        <li><a>Your Books</a></li>
+        <li><a>Your Requests</a></li>
     </>
 
     return (
-        <div className="">
+        <div className="bg-primary">
             <div className="max-w-7xl mx-auto">
                 <div className="navbar">
                     <div className="navbar-start">
@@ -32,7 +34,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
+                        <button className="btn btn-primary text-neutral">Login</button>
                         <Switcher />
+                        
                     </div>
                 </div>
             </div>

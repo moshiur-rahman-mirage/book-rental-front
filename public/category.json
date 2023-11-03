@@ -1,0 +1,40 @@
+ [
+      {
+        "id": 1,
+        "name": "Mathematics",
+        "description": "Explore the world of numbers, equations, and mathematical concepts.",
+        "image": "math.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Science",
+        "description": "Dive into the realms of physics, chemistry, biology, and more.",
+        "image": "science.jpg"
+      },
+      {
+        "id": 3,
+        "name": "History",
+        "description": "Uncover the past and learn about historical events and figures.",
+        "image": "history.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Literature",
+        "description": "Appreciate literary classics and analyze literary works.",
+        "image": "literature.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Computer Science",
+        "description": "Master the world of programming, algorithms, and software engineering.",
+        "image": "computerscience.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Computer Science",
+        "description": "Master the world of programming, algorithms, and software engineering.",
+        "image": "computerscience.jpg"
+      }
+    ]
+  
+  

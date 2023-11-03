@@ -9,31 +9,36 @@ export default {
     themes: [{
       light: {
 
-        "primary": "#7286D3",
+        "secondary": "#7286D3",
 
-        "secondary-light": "#E5E0FF",
+        "primary": "#5064B5",
 
-        "secondary-dark": "#8EA7E9",
+        "info": "#8EA7E9",
 
         "neutral": "#FFFFFF",
 
-        "neutral-light": "#F7F7F7",
-
-        "accent": "#FFF2F2",
+        "success": "#F7F7F7",
+        "error":"#000000",
+        "accent": "#A08C54",
+        "warning":"#F5C22F"
       },
+
       dark: {
 
         "primary": "#004C3F",
 
-        "secondary-light": "#008C71",
+        "secondary": "#008C71",
 
-        "secondary-dark": "#008C71",
+        "accent": "#008C71",
 
         "neutral": "#000000",
+  
+        "error": "#FFFFFF",
 
-        "neutral-light": "#333333",
 
-        "accent": "#FFD700",
+        "info": "#333333",
+
+        "success": "#FFD700",
       },
     },],
   },
