@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Switcher from "../../config/Switcher";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -34,7 +35,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <button className="btn btn-primary text-neutral">Login</button>
+                        <Link to="login" className="btn btn-primary text-neutral">Login</Link>
                         <Switcher />
                         
                     </div>

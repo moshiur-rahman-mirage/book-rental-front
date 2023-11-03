@@ -4,7 +4,7 @@ import SingleCategory from './SingleCategory';
 const Category = () => {
     const [xcategory,setxCategory]=useState([]);
     useState(()=>{
-        fetch('category.json')
+        fetch('http://localhost:5000/category')
         .then(res=>res.json())
         .then(data=>setxCategory(data))
     },[])
@@ -14,7 +14,7 @@ const Category = () => {
             {
                 xcategory.map(cat=>{
                     return(
-                        <SingleCategory key={cat.id} cat={cat}/>
+                        <SingleCategory key={cat._id} cat={cat}/>
                     )
                 })
             }
