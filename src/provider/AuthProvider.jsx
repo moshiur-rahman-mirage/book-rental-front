@@ -43,7 +43,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-
     const authinfo = {
         brandName,
         user,
