@@ -3,6 +3,9 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
+import Bookdetails from "../components/Bookdetails/Bookdetails";
+import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
+import CategoryAllBooks from "../pages/CategoryAllBooks/CategoryAllBooks";
 
 const Router=createBrowserRouter([
     {
@@ -12,6 +15,17 @@ const Router=createBrowserRouter([
             {
                 path:"/",
                 element:<Home/>
+            },
+            {
+                path:"books/:id",
+                element:<Bookdetails/>,
+                loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+            },
+            {
+               path:"categoryallbooks/:name",
+               element:<CategoryAllBooks/>,
+               loader: ({ params }) => fetch(`http://localhost:5000/books?subject=${params.name}`),
+
             }
            
         ]
@@ -23,7 +37,8 @@ const Router=createBrowserRouter([
     {
         path:"signup",
         element:<Signup/>
-    }
+    },
+
 ])
 
 export default Router

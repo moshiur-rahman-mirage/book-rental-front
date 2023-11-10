@@ -19,6 +19,7 @@ export default function Switcher() {
     return (
         <>
             <DarkModeSwitch
+            className="hover:bg-secondary hover:text-neutral-content rounded-full"
                 style={{
                 color: isActive ? 'black' : 'white', }}
                 checked={darkSide}

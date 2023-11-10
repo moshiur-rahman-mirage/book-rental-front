@@ -1,18 +1,18 @@
 
 import Carousel from '../../components/Carousel/Carousel';
+import Category from '../../components/Category/Category';
 import RecentNews from '../../components/RecentNews/RecentNews';
 
 
 
 const Home = () => {
     return (
-        <div className='grid grid-cols-12'>
-           <div className='col-span-8'>
+        <div >
+          
            <Carousel/>
-           </div>
-           <div className='col-span-4'>
-                <RecentNews/>
-           </div>
+          
+           <Category/>
+          
           
         </div>
     );

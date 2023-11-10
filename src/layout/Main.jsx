@@ -5,14 +5,14 @@ import Category from '../components/Category/Category';
 
 const Main = () => {
     return (
-        <div>
+        <div className='bg-base-100'>
             <div className='min-h-screen'>
                 <Navbar className=''/>
                 <div className=''>
                     <Outlet />
                 </div>
             </div>
-            <Category/>
+           
             <Footer />
         </div>
     );

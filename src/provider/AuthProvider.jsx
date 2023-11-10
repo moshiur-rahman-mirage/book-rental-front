@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 const auth=getAuth(app);
 
 const AuthProvider = ({ children }) => {
-    const brandName = 'EBLA Library'
+    const brandName = 'JNU Readers Club'
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true)
 

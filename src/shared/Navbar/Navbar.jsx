@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     const { brandName } = useContext(AuthContext)
     const navitem = <>
-        <li><a>Book List</a></li>
-        <li><a>About Us</a></li>
-        <li><a>Your Books</a></li>
-        <li><a>Your Requests</a></li>
+        <li><a className="hover:bg-secondary hover:text-neutral-content">Book List</a></li>
+        <li><a className="hover:bg-secondary hover:text-neutral-content">About Us</a></li>
+        <li><a className="hover:bg-secondary hover:text-neutral-content">Your Books</a></li>
+        <li><a className="hover:bg-secondary hover:text-neutral-content">Your Requests</a></li>
     </>
 
     return (
@@ -26,7 +26,7 @@ const Navbar = () => {
                                 {navitem}
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-neutral  normal-case text-xl">{brandName}</a>
+                        <a className="btn btn-ghost text-neutral hover:bg-secondary hover:text-neutral-content normal-case text-xl">{brandName}</a>
                         {console.log({brandName})}
                     </div>
                     <div className="navbar-center text-neutral hidden lg:flex">
@@ -35,7 +35,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <Link to="login" className="btn btn-primary text-neutral">Login</Link>
+                        <Link to="login" className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Login</Link>
                         <Switcher />
                         
                     </div>
