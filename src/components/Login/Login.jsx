@@ -19,12 +19,16 @@ const Login = () => {
     const navigate = useNavigate();
     const { signInUser, brand, signInWithGoogle } = useContext(AuthContext)
 
-    const checkCaptcha = () => {
+    const checkCaptcha = (e) => {
+        e.preventDefault();
         const user_captcha_value = captchaRef.current.value;
         console.log(user_captcha_value)
+        if((user_captcha_value.length)>6){
         if (validateCaptcha(user_captcha_value)) {
             setDisabled(false)
         } 
+    }
+       
     }
 
     const handleLogin = e => {
@@ -81,10 +85,10 @@ const Login = () => {
                                         {/* <LoadCanvasTemplate /> */}
                                         <LoadCanvasTemplateNoReload />
                                     </label>
-                                    <input ref={captchaRef}  type="text" name="captcha" id="captcha" placeholder="Type the text above" className=" border bg-transparent border-gray-300 text-neutral sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="" />
-                                    <button onBlur={checkCaptcha} className='btn btn-primary'>Validate</button>
+                                    <input onChange={checkCaptcha}  ref={captchaRef}  type="text" name="captcha" id="captcha" placeholder="Type the text above" className=" border bg-transparent border-gray-300 text-neutral sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="" />
+                                    
                                 </div>
-                                <button disabled={disabled} type="submit" className="w-full text-neutral btn btn-outline bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 ">Sign in</button>
+                                <button disabled={disabled} type="submit" className="w-full text-neutral btn btn-outline bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-secondary">Sign in</button>
                                 <div>
                                     <p className="text-sm font-light ">
                                         Don’t have an account yet? <Link to="/signup" className="font-medium text-primary-600 underline ">Sign up</Link>
