@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import SingleBooks from './SingleBooks';
 import { NavLink } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const CategoryBooks = ({ name }) => {
     const [xbooks, setxBooks] = useState([]);
     const [booksCount,setBooksCount]=useState(0)
-    useState(() => {
-        fetch(`http://localhost:5000/books?subject=${name}&size=4`)
-            .then(res => res.json())
-            .then(data => setxBooks(data))
-    }, [])
+    const axiosSecure=useAxiosSecure();
+
+    const bookUrl=`/books?subject=${name}&size=4`
+    const countUrl=`/bookscount?subject=${name}`
+  
+    useEffect(() => {
+        axiosSecure.get(bookUrl)
+        .then(res=>setxBooks(res.data))
+    }, [bookUrl,axiosSecure])
 
 
 
-    useState(() => {
-        fetch(`http://localhost:5000/bookscount?subject=${name}`)
-            .then(res => res.json())
-            .then(data => setBooksCount(data))
-    }, [])
+    useEffect(() => {
+        axiosSecure.get(countUrl)
+        .then(res=>setBooksCount(res.data))
+    }, [countUrl,axiosSecure])
 
 
     return (

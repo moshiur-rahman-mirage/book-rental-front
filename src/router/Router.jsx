@@ -6,37 +6,42 @@ import Signup from "../components/Signup/Signup";
 import Bookdetails from "../components/Bookdetails/Bookdetails";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
 import CategoryAllBooks from "../pages/CategoryAllBooks/CategoryAllBooks";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const Router=createBrowserRouter([
+const axiosSecure = useAxiosSecure()
+
+const Router = createBrowserRouter([
     {
-        path:"/",
-        element:<Main/>,
-        children:[
+        path: "/",
+        element: <Main />,
+        children: [
             {
-                path:"/",
-                element:<Home/>
+                path: "/",
+                element: <Home />
             },
             {
-                path:"books/:id",
-                element:<Bookdetails/>,
-                loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`),
+                path: "books/:id",
+                element: <Bookdetails />,
+                loader: ({ params }) => axiosSecure.get(`/books/${params.id}`)
+                    .then(res => res.data)
             },
             {
-               path:"categoryallbooks/:name",
-               element:<CategoryAllBooks/>,
-               loader: ({ params }) => fetch(`http://localhost:5000/books?subject=${params.name}`),
+                path: "categoryallbooks/:name",
+                element: <CategoryAllBooks />,
+                loader: ({ params }) => axiosSecure.get(`books?subject=${params.name}`)
+                    .then(res => res.data)
 
             }
-           
+
         ]
     },
     {
-        path:"login",
-        element:<Login/>
+        path: "login",
+        element: <Login />
     },
     {
-        path:"signup",
-        element:<Signup/>
+        path: "signup",
+        element: <Signup />
     },
 
 ])
