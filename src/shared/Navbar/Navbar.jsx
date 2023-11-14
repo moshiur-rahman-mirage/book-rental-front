@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Switcher from "../../config/Switcher";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
-
+import { FaBookOpen } from "react-icons/fa";
 
 const Navbar = () => {
     const { brandName } = useContext(AuthContext)
@@ -10,7 +10,11 @@ const Navbar = () => {
         <li><a className="hover:bg-secondary hover:text-neutral-content">Book List</a></li>
         <li><a className="hover:bg-secondary hover:text-neutral-content">About Us</a></li>
         <li><a className="hover:bg-secondary hover:text-neutral-content">Your Books</a></li>
-        <li><a className="hover:bg-secondary hover:text-neutral-content">Your Requests</a></li>
+        <li className=""><a className=" hover:bg-secondary hover:text-neutral-content">Your Requests
+            <div className="badge badge-secondary hover:font-semibold hover:badge-primary "> 
+            <FaBookOpen/>
+            +0</div>
+        </a></li>
     </>
 
     return (
@@ -27,7 +31,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <a className="btn btn-ghost text-neutral hover:bg-secondary hover:text-neutral-content normal-case text-xl">{brandName}</a>
-                        {console.log({brandName})}
+                        {console.log({ brandName })}
                     </div>
                     <div className="navbar-center text-neutral hidden lg:flex">
                         <ul className="menu  menu-horizontal px-1">
@@ -37,7 +41,7 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <Link to="login" className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Login</Link>
                         <Switcher />
-                        
+
                     </div>
                 </div>
             </div>

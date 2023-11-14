@@ -4,9 +4,12 @@ import { NavLink } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
+import { useContext } from 'react';
 
 const CategoryBooks = ({ name }) => {
     const [xbooks, setxBooks] = useState([]);
+    const { loading } = useContext(AuthContext);
     const [booksCount,setBooksCount]=useState(0)
     const axiosSecure=useAxiosSecure();
 
