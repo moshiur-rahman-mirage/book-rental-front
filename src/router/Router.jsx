@@ -22,14 +22,12 @@ const Router = createBrowserRouter([
             {
                 path: "books/:id",
                 element: <Bookdetails />,
-                loader: ({ params }) => axiosSecure.get(`/books/${params.id}`)
-                    .then(res => res.data)
+                loader: ({ params }) => fetch(`https://book-rental-back-git-main-moshiur-rahmans-projects-fe916e0b.vercel.app/books/${params.id}`),
             },
             {
                 path: "categoryallbooks/:name",
                 element: <CategoryAllBooks />,
-                loader: ({ params }) => axiosSecure.get(`books?subject=${params.name}`)
-                    .then(res => res.data)
+                loader: ({ params }) => fetch(`https://book-rental-back-git-main-moshiur-rahmans-projects-fe916e0b.vercel.app/books?subject=${params.name}`),
 
             }
 
