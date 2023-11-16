@@ -3,18 +3,27 @@ import Switcher from "../../config/Switcher";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { FaBookOpen } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
-    const { brandName } = useContext(AuthContext)
+    const { brandName, user,logout } = useContext(AuthContext)
+    const [,cart]=useCart();
+    console.log(useCart())
+    // console.log(cart)
+    const handleSignOut = () => {
+        logout()
+            .then()
+            .catch()
+    }
     const navitem = <>
         <li><a className="hover:bg-secondary hover:text-neutral-content">Book List</a></li>
-        <li><a className="hover:bg-secondary hover:text-neutral-content">About Us</a></li>
-        <li><a className="hover:bg-secondary hover:text-neutral-content">Your Books</a></li>
-        <li className=""><a className=" hover:bg-secondary hover:text-neutral-content">Your Requests
-            <div className="badge badge-secondary hover:font-semibold hover:badge-primary "> 
-            <FaBookOpen/>
-            +0</div>
-        </a></li>
+        <li><Link to="/about" className="hover:bg-secondary hover:text-neutral-content">About Us</Link></li>
+        <li><Link to="/dashboard" className="hover:bg-secondary hover:text-neutral-content">Dashboard</Link></li>
+        <li className=""><Link to="/request" className=" hover:bg-secondary hover:text-neutral-content">Your Requests
+            <div className="badge badge-secondary hover:font-semibold hover:badge-primary ">
+                <FaBookOpen />
+                +{cart.length}</div>
+        </Link></li>
     </>
 
     return (
@@ -30,8 +39,8 @@ const Navbar = () => {
                                 {navitem}
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-neutral hover:bg-secondary hover:text-neutral-content normal-case text-xl">{brandName}</a>
-                        {console.log({ brandName })}
+                        <Link to="/" className="btn btn-ghost text-neutral hover:bg-secondary hover:text-neutral-content normal-case text-xl">{brandName}</Link>
+                      
                     </div>
                     <div className="navbar-center text-neutral hidden lg:flex">
                         <ul className="menu  menu-horizontal px-1">
@@ -39,7 +48,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
+                        {user ?
+                            <button onClick={handleSignOut} className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Sign Out</button> :
                         <Link to="login" className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Login</Link>
+                    }
                         <Switcher />
 
                     </div>

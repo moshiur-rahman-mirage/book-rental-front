@@ -4,26 +4,31 @@ import Navbar from '../../shared/Navbar/Navbar';
 import Footer from '../../shared/Footer/Footer';
 import { AuthContext } from '../../provider/AuthProvider';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true)
     const captchaRef = useRef(null)
+    const navigate = useNavigate();
+    const location=useLocation();
     useEffect(() => {
         loadCaptchaEnginge(6);
         console.log('here')
     }, [])
 
-    const location = useLocation();
-    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+    console.log(location.state)
+  
     const { signInUser, brand, signInWithGoogle } = useContext(AuthContext)
 
     const checkCaptcha = (e) => {
         e.preventDefault();
         const user_captcha_value = captchaRef.current.value;
         console.log(user_captcha_value)
-        if((user_captcha_value.length)>6){
+        if((user_captcha_value.length)>=6){
         if (validateCaptcha(user_captcha_value)) {
             setDisabled(false)
         } 
@@ -63,7 +68,8 @@ const Login = () => {
 
     return (
         <div>
-            <Navbar />
+             <ToastContainer/>
+            {/* <Navbar /> */}
             <section className="bg-[url('/img/login-cover.jpg')] object-cover bg-no-repeat flex items-center h-[600px] ">
                 <div className="flex opacity-90 border bg-primary flex-col  text-neutral items-center justify-center px-6 mx-auto  lg:py-0">
                     <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">

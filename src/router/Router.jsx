@@ -7,6 +7,10 @@ import Bookdetails from "../components/Bookdetails/Bookdetails";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
 import CategoryAllBooks from "../pages/CategoryAllBooks/CategoryAllBooks";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import ErrorPage from "../ErrorPage";
+import Dashboard from "../layout/BooksDashboard/Dashboard/Dashboard";
+import MyBooks from "../layout/BooksDashboard/MyBooks/MyBooks";
+import BorrowBook from "../pages/BorrowBook/BorrowBook";
 
 const axiosSecure = useAxiosSecure()
 
@@ -14,6 +18,7 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -29,18 +34,42 @@ const Router = createBrowserRouter([
                 element: <CategoryAllBooks />,
                 loader: ({ params }) => fetch(`https://book-rental-back-git-main-moshiur-rahmans-projects-fe916e0b.vercel.app/books?subject=${params.name}`),
 
-            }
+            },
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "signup",
+                element: <Signup />
+            },
+            {
+                path: "borrowbook/:id",
+                element: <BorrowBook />,
+                loader: ({ params }) => fetch(`https://book-rental-back-git-main-moshiur-rahmans-projects-fe916e0b.vercel.app/books/${params.id}`),
+            },
+            {
+                path: "dashboard",
+                element: <Dashboard />,
+                children:[
+                    {
+                        path:"dashboard/mybooks",
+                        element:<MyBooks/>
+                    },
+                    {
+                        path:"dashboard/mybooks",
+                        element:<MyBooks/>
+                    },
+                    {
+                        path:"dashboard/mybooks",
+                        element:<MyBooks/>
+                    }
+                ]
+            },
 
         ]
     },
-    {
-        path: "login",
-        element: <Login />
-    },
-    {
-        path: "signup",
-        element: <Signup />
-    },
+   
 
 ])
 
