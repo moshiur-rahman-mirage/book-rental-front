@@ -11,6 +11,9 @@ import ErrorPage from "../ErrorPage";
 import Dashboard from "../layout/BooksDashboard/Dashboard/Dashboard";
 import MyBooks from "../layout/BooksDashboard/MyBooks/MyBooks";
 import BorrowBook from "../pages/BorrowBook/BorrowBook";
+import User from "../layout/BooksDashboard/User/User";
+import Books from "../layout/BooksDashboard/Books/Books";
+import Statistics from "../layout/BooksDashboard/Statistics/Statistics";
 
 const axiosSecure = useAxiosSecure()
 
@@ -53,16 +56,16 @@ const Router = createBrowserRouter([
                 element: <Dashboard />,
                 children:[
                     {
-                        path:"dashboard/mybooks",
-                        element:<MyBooks/>
+                        path:"user",
+                        element:<User/>
                     },
                     {
-                        path:"dashboard/mybooks",
-                        element:<MyBooks/>
+                        path:"books",
+                        element:<Books/>
                     },
                     {
-                        path:"dashboard/mybooks",
-                        element:<MyBooks/>
+                        path:"statistics",
+                        element:<Statistics/>
                     }
                 ]
             },

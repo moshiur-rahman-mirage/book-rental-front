@@ -7,7 +7,7 @@ import RecentNews from '../../components/RecentNews/RecentNews';
 
 const Home = () => {
     return (
-        <div >
+        <div className='bg-base-100'>
           
            <Carousel/>
           

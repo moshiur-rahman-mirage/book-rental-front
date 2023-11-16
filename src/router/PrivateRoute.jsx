@@ -9,7 +9,7 @@ import { useContext } from "react";
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location.pathname);
+    // console.log(location.pathname);
 
     if (loading) {
         return <span className="loading loading-infinity loading-lg"></span>

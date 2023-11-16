@@ -14,7 +14,7 @@ const Category = () => {
     },[categoryUrl,axiosSecure])
     return (
         <div>
-            {/* <h1 className='text-error   text-4xl   m-2 font-semibold text-center' >Books</h1> */}
+          
             {
                 xcategory.map(cat=>{
                     return(

@@ -30,7 +30,7 @@ const CategoryBooks = ({ name }) => {
 
 
     return (
-        <div className='flex flex-col items-center'>
+        <div className=''>
         <div className='grid  gap-5 grid-cols-1 md:grid-cols-4 '>
              {
                 xbooks.map(book=>{
@@ -43,7 +43,7 @@ const CategoryBooks = ({ name }) => {
            </div>
            {booksCount.count>4 && 
            
-           <NavLink to={`/categoryallbooks/${name}`} className=' btn my-5 btn-secondary text-neutral-content'>Show More {name} Books</NavLink>
+           <NavLink to={`/categoryallbooks/${name}`} className=' text-right btn my-5 btn-secondary border text-neutral-content'>Show More {name} Books</NavLink>
            }   
           
                

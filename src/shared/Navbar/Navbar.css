@@ -1,0 +1,4 @@
+li a.active {
+    background-color: #F9DC5C !important; /* Set your desired color for the active route */
+    color: text-neutral-content; /* Add other styles as needed */
+  }

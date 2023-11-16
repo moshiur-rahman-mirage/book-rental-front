@@ -12,13 +12,14 @@ export default {
         "primary":"#011936",
         // button color , highlight color 
         "secondary": "#F9DC5C",
+        // "secondary":"#E09409",
         // background color
-        "bg-base-100":"#F4FFFD",
+        "base-100":"#F2F3F5",
         // text color
         "neutral": "#FFFFFF",
 
         "neutral-content": "#000000",
-        "accent": "#465362",
+        "accent": "#5A6EED",
 
       },
 

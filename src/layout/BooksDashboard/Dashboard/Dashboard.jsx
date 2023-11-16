@@ -1,52 +1,49 @@
 import React from 'react';
 import MyBooks from '../MyBooks/MyBooks';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { FaAd, FaCalendar, FaHome, FaList, FaSearch, FaShoppingCart } from 'react-icons/fa';
-
+import "./Dashboard.css"
 const Dashboard = () => {
     return (
-        <div>
+        <div className='flex'>
             <div className="w-64 min-h-screen bg-primary">
                 <ul className="menu p-4">
                     <li >
-                        <Link className='hover:bg-secondary hover:text-neutral-content'  to="/dashboard/userHome">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content'  to="/dashboard/user">
                             <FaHome></FaHome>
-                            User Home</Link>
+                            User Update</NavLink>
                     </li>
                     <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/dashboard/reservation">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/books">
                             <FaCalendar></FaCalendar>
-                            Reservation</Link>
+                            Book Management</NavLink>
                     </li>
                     <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/dashboard/cart">
-                            <FaShoppingCart></FaShoppingCart>
-                            My Cart </Link>
-                    </li>
-                    <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/dashboard/review">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/statistics">
                             <FaAd></FaAd>
-                            Add a Review</Link>
+                            Statistics</NavLink>
                     </li>
                     <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/dashboard/bookings">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/bookings">
                             <FaList></FaList>
-                            My Bookings</Link>
+                            My Bookings</NavLink>
                     </li>
-                    <div className="divider"></div>
+                    <div className="divider text-4xl text-neutral divider-neutral"></div>
+
+                    
                     <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/">
                             <FaHome></FaHome>
-                            Home</Link>
+                            My Books</NavLink>
                     </li>
                     <li>
-                        <Link className='hover:bg-secondary hover:text-neutral-content' to="/order/salad">
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/order/salad">
                             <FaSearch></FaSearch>
-                            Menu</Link>
+                            Profile Update</NavLink>
                     </li>
                 </ul>
             </div>
-            {/* dashboard content */}
+           
             <div className="flex-1 p-8">
                 <Outlet></Outlet>
             </div>

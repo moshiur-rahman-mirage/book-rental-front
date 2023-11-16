@@ -19,7 +19,7 @@ const SingleBooks = ({ book }) => {
     const cartUrl = '/carts'
     const { _id, title, author, isbn, publication_year, image } = book
     const handleAddToCart = book => {
-        console.log( user.user.email)
+        // console.log( user.user.email)
         if (user.user && user.user.email) {
             const cartItem = {
                 bookId: _id,
@@ -60,9 +60,9 @@ const SingleBooks = ({ book }) => {
                 />
 
 
-                <div className='flex flex-row items-end md:items-start md:flex-col'>
+                <div className='flex object-contain flex-row break-words items-end md:items-start md:flex-col'>
                     <div >
-                        <h3 className="mt-2 pl-2 w-64 md:w-full text-lg font-bold text-neutral-content sm:text-xl">
+                        <h3 className="mt-2 pl-2 w-72 break-words  text-lg font-bold text-neutral-content sm:text-xl">
                             {title}
                         </h3>
                         <p className=" pl-2 max-w-sm text-neutral-content">
