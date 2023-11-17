@@ -6,7 +6,7 @@ import Signup from "../components/Signup/Signup";
 import Bookdetails from "../components/Bookdetails/Bookdetails";
 import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
 import CategoryAllBooks from "../pages/CategoryAllBooks/CategoryAllBooks";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 import ErrorPage from "../ErrorPage";
 import Dashboard from "../layout/BooksDashboard/Dashboard/Dashboard";
 import MyBooks from "../layout/BooksDashboard/MyBooks/MyBooks";
@@ -15,7 +15,7 @@ import User from "../layout/BooksDashboard/User/User";
 import Books from "../layout/BooksDashboard/Books/Books";
 import Statistics from "../layout/BooksDashboard/Statistics/Statistics";
 
-const axiosSecure = useAxiosSecure()
+const axiosPublic = useAxiosPublic()
 
 const Router = createBrowserRouter([
     {

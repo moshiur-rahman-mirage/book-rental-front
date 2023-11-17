@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import SingleCategory from './SingleCategory';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useEffect } from 'react';
 
 const Category = () => {
     const [xcategory,setxCategory]=useState([]);
-    const axiosSecure=useAxiosSecure();
+    const axiosPublic=useAxiosPublic();
     const categoryUrl='/category'
     useEffect(()=>{
 
-        axiosSecure.get(categoryUrl)
+        axiosPublic.get(categoryUrl)
         .then(res=>setxCategory(res.data))
-    },[categoryUrl,axiosSecure])
+    },[categoryUrl,axiosPublic])
     return (
         <div>
           

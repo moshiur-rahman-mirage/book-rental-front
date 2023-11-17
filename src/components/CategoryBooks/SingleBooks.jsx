@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import useCart from '../../hooks/useCart';
 
@@ -15,7 +15,7 @@ const SingleBooks = ({ book }) => {
     const location = useLocation();
     const user = useAuth();
     const [refetch,]=useCart();
-    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const cartUrl = '/carts'
     const { _id, title, author, isbn, publication_year, image } = book
     const handleAddToCart = book => {
@@ -30,7 +30,7 @@ const SingleBooks = ({ book }) => {
                 image
 
             }
-            axiosSecure.post(cartUrl, cartItem)
+            axiosPublic.post(cartUrl, cartItem)
                 .then(res => {
                     if (res.data.insertedId) {
                         Swal.fire({

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SingleBooks from './SingleBooks';
 import { NavLink } from 'react-router-dom';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
@@ -11,22 +11,22 @@ const CategoryBooks = ({ name }) => {
     const [xbooks, setxBooks] = useState([]);
     const { loading } = useContext(AuthContext);
     const [booksCount,setBooksCount]=useState(0)
-    const axiosSecure=useAxiosSecure();
+    const axiosPublic=useAxiosPublic();
 
     const bookUrl=`/books?subject=${name}&size=4`
     const countUrl=`/bookscount?subject=${name}`
   
     useEffect(() => {
-        axiosSecure.get(bookUrl)
+        axiosPublic.get(bookUrl)
         .then(res=>setxBooks(res.data))
-    }, [bookUrl,axiosSecure])
+    }, [bookUrl,axiosPublic])
 
 
 
     useEffect(() => {
-        axiosSecure.get(countUrl)
+        axiosPublic.get(countUrl)
         .then(res=>setBooksCount(res.data))
-    }, [countUrl,axiosSecure])
+    }, [countUrl,axiosPublic])
 
 
     return (

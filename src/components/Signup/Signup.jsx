@@ -36,7 +36,7 @@ const Signup = () => {
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
 
-                        navigate('/')
+                        // navigate('/')
                     })
             })
     }
