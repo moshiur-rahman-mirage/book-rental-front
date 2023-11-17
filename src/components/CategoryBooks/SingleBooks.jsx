@@ -17,7 +17,7 @@ const SingleBooks = ({ book }) => {
     const [refetch,]=useCart();
     const axiosPublic = useAxiosPublic();
     const cartUrl = '/carts'
-    const { _id, title, author, isbn, publication_year, image } = book
+    const { _id, title, author, isbn, publication_year, photo } = book
     const handleAddToCart = book => {
         // console.log( user.user.email)
         if (user.user && user.user.email) {
@@ -27,7 +27,7 @@ const SingleBooks = ({ book }) => {
                 title,
                 author,
                 isbn,
-                image
+                photo
 
             }
             axiosPublic.post(cartUrl, cartItem)
@@ -55,7 +55,7 @@ const SingleBooks = ({ book }) => {
                 <ToastContainer />
                 <img
                     alt="Art"
-                    src="https://i.ibb.co/HNkTx8X/madalyn-cox-O7ygzp-AL4-Mc-unsplash-1.jpg"
+                    src={photo}
                     className="h-64   p-2 w-full object-cover sm:h-80 lg:h-96"
                 />
 

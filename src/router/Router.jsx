@@ -14,6 +14,8 @@ import BorrowBook from "../pages/BorrowBook/BorrowBook";
 import User from "../layout/BooksDashboard/User/User";
 import Books from "../layout/BooksDashboard/Books/Books";
 import Statistics from "../layout/BooksDashboard/Statistics/Statistics";
+import Donate from "../layout/BooksDashboard/Donate/Donate";
+import PrivateRoute from "./PrivateRoute";
 
 const axiosPublic = useAxiosPublic()
 
@@ -53,7 +55,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "dashboard",
-                element: <Dashboard />,
+                element: <PrivateRoute><Dashboard /></PrivateRoute> ,
                 children:[
                     {
                         path:"user",
@@ -66,6 +68,14 @@ const Router = createBrowserRouter([
                     {
                         path:"statistics",
                         element:<Statistics/>
+                    },
+                    {
+                        path:"donate",
+                        element:<Donate/>
+                    },
+                    {
+                        path:"mybooks",
+                        element:<MyBooks/>
                     }
                 ]
             },

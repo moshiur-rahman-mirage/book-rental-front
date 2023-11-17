@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import GoogleSignIn from '../../shared/GoogleSignIn/GoogleSignIn';
 const Signup = () => {
 
     const { user, createUser, brand, logout, updateUserProfile } = useContext(AuthContext)
@@ -82,9 +83,7 @@ const Signup = () => {
                             <button type="submit" className="w-full btn btn-ghost bg-secondary text-neutral-content hover:bg-accent hover:text-neutral focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign Up</button>
                             <div className='mx-auto flex items-end '>
                                 <div className='flex items-end gap-5  flex-row text-3xl '>
-                                    <div className='btn rounded-full bg-secondary hover:bg-accent hover:text-neutral '>
-                                        <BsGoogle className='text-xl font-bold' />
-                                    </div>
+                                    <GoogleSignIn/>
                                     <div className='btn rounded-full bg-secondary hover:bg-accent hover:text-neutral '>
                                         <BsGithub className='text-xl font-bold' />
                                     </div>
