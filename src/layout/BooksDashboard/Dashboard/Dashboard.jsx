@@ -1,7 +1,7 @@
 import React from 'react';
 import MyBooks from '../MyBooks/MyBooks';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaAd, FaCalendar, FaHome, FaList, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaAd, FaBook, FaBookOpen, FaCalendar, FaChartLine, FaHome, FaList, FaRegHourglass, FaSearch, FaShoppingCart, FaUser, FaUsers } from 'react-icons/fa';
 import "./Dashboard.css"
 const Dashboard = () => {
     return (
@@ -10,35 +10,35 @@ const Dashboard = () => {
                 <ul className="menu p-4">
                     <li >
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content'  to="/dashboard/user">
-                            <FaHome></FaHome>
-                            User Update</NavLink>
+                            <FaUsers/>
+                            User Access Update</NavLink>
                     </li>
                     <li>
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/books">
-                            <FaCalendar></FaCalendar>
+                            <FaBookOpen/>
                             Book Management</NavLink>
                     </li>
                     <li>
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/statistics">
-                            <FaAd></FaAd>
+                        <FaChartLine />
                             Statistics</NavLink>
                     </li>
                     <li>
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/bookings">
-                            <FaList></FaList>
-                            My Bookings</NavLink>
+                        <FaRegHourglass />
+                            Requests</NavLink>
                     </li>
                     <div className="divider text-4xl text-neutral divider-neutral"></div>
 
                     
                     <li>
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/">
-                            <FaHome></FaHome>
+                            <FaBook/>
                             My Books</NavLink>
                     </li>
                     <li>
                         <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/order/salad">
-                            <FaSearch></FaSearch>
+                            <FaUser/>
                             Profile Update</NavLink>
                     </li>
                 </ul>

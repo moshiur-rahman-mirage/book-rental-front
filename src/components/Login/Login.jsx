@@ -7,6 +7,9 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BsGithub, BsGoogle } from "react-icons/bs";
+import useAuth from '../../hooks/useAuth';
+import GoogleSignIn from '../../shared/GoogleSignIn/GoogleSignIn';
+import GithubSign from '../../shared/GithubSignin/GithubSign';
 
 
 const Login = () => {
@@ -14,6 +17,7 @@ const Login = () => {
     const captchaRef = useRef(null)
     const navigate = useNavigate();
     const location=useLocation();
+
     useEffect(() => {
         loadCaptchaEnginge(6);
         // console.log('here')
@@ -94,7 +98,7 @@ const Login = () => {
                                     <input onChange={checkCaptcha}  ref={captchaRef}  type="text" name="captcha" id="captcha" placeholder="Type the text above" className=" border bg-transparent border-gray-300 text-neutral sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="" />
                                     
                                 </div>
-                                <button  type="submit" className="w-full text-neutral btn btn-outline bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-secondary">Sign in</button>
+                                <button  type="submit" className="w-full text-neutral btn btn-secondary bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-secondary">Sign in</button>
                                 {/* disabled={disabled} */}
                                 <div>
                                     <p className="text-sm font-light ">
@@ -103,12 +107,8 @@ const Login = () => {
                                 </div>
                                 <div className='mx-auto flex items-end '>
                                 <div className='flex items-end gap-5  flex-row text-3xl '>
-                                    <div className='btn rounded-full bg-secondary hover:bg-accent hover:text-neutral '>
-                                        <BsGoogle className='text-xl font-bold' />
-                                    </div>
-                                    <div className='btn rounded-full bg-secondary hover:bg-accent hover:text-neutral '>
-                                        <BsGithub className='text-xl font-bold'/>
-                                    </div>
+                                    <GoogleSignIn/>
+                                    <GithubSign/>
                                 </div>
                             </div>
                             </form>
