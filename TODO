@@ -1,6 +1,14 @@
 
 
-use hook to save data in mongodb
-use dynamic color for active route
-fix google signin
-implement datatable with search and pagination -- DONE
+1. use hook to save data in mongodb
+2. use dynamic color for active route
+3. fix google signin
+4. implement datatable with search and pagination -- DONE
+5. in datatable if using search there is issue when second time loading.
+6. implement jwt 
+7. implement github login
+8. implement booking system for donated books. 
+9. need to add footer.
+10. reduce code size by making reusable component.
+
+
