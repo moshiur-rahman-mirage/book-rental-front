@@ -1,6 +1,7 @@
 import { Children, createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 
@@ -10,6 +11,7 @@ const AuthProvider = ({ children }) => {
     const brandName = 'JNU Readers Club'
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true)
+    const axiosPublic=useAxiosPublic();
 
     const createUser=(email,password)=>{
         setLoading(true);
@@ -29,9 +31,7 @@ const AuthProvider = ({ children }) => {
 
     const signInWithGoogle = () => {
         setLoading(true);
-        // console.log('called')
-        // console.log(auth)
-        // console.log(GoogleAuthProvider)
+
         return signInWithPopup(auth, GoogleAuthProvider);
     }
 
@@ -46,8 +46,20 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            if(currentUser){
+                const userEmail={email:currentUser.email};
+                axiosPublic.post('/jwt',userEmail)
+                .then(res=>{
+                    if(res.data.token){
+                        localStorage.setItem('access-token',res.data.token);
+                    }
+                })
+            }
+            else{
+               localStorage.removeItem('access-token')
+            }
             setLoading(false);
-            // console.log(currentUser)
+
         });
         return () => {
             unSubscribe();

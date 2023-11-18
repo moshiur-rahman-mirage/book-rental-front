@@ -20,18 +20,15 @@ const Login = () => {
 
     useEffect(() => {
         loadCaptchaEnginge(6);
-        // console.log('here')
     }, [])
 
     const from = location.state?.from?.pathname || "/";
-    // console.log(location.state)
   
     const { signInUser, brand, signInWithGoogle } = useContext(AuthContext)
 
     const checkCaptcha = (e) => {
         e.preventDefault();
         const user_captcha_value = captchaRef.current.value;
-        // console.log(user_captcha_value)
         if((user_captcha_value.length)>=6){
         if (validateCaptcha(user_captcha_value)) {
             setDisabled(false)
@@ -42,7 +39,6 @@ const Login = () => {
 
     const handleLogin = e => {
         e.preventDefault();
-        // console.log('clicked?')
         const form = new FormData(e.currentTarget)
         const email = form.get('email')
         const password = form.get('password')
@@ -55,7 +51,6 @@ const Login = () => {
 
             })
             .catch(error => {
-                // console.log(error)
                 if (error.code === 'auth/wrong-password') {
                     toast.error('Please check the Password');
                 }

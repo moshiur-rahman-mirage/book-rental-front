@@ -1,16 +1,19 @@
-import { Button, FilledInput, FormControl, FormHelperText, IconButton, Input, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select, Stack } from '@mui/material';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import React, { useState } from 'react';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
-import { useForm } from 'react-hook-form';
-import useAuth from '../../../hooks/useAuth';
-import Swal from 'sweetalert2';
+import { useForm } from "react-hook-form";
+import { FaUtensils } from "react-icons/fa";
+
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+
+//const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=ffb0b38d5ef00b42e67cbd94cc6f2192`;
 
 const Donate = () => {
+    const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
-    const {user}=useAuth();
+    const axiosSecure = useAxiosSecure();
+
     const categoryUrl = '/category'
     const { data: categories = [], refetch } = useQuery({
         queryKey: ['category'],
@@ -21,157 +24,124 @@ const Donate = () => {
         }
     })
 
-console.log(user)
-    const [formData, setFormData] = useState({
-        title: '',
-        author: '',
-        publication_year: '',
-        subject: '',
-        photo: '',
-        isbn: '',
-        donerEmail: user.email
 
-    });
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({
-            ...formData,
-            [name]: value,
+    const onSubmit = async (data) => {
+  
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
         });
+        if (res.data.success) {
+            // now send the menu item data to the server with the image url
+            const book = {
+                title: data.title,
+                category: data.category,
+                author: data.author,
+                publication_year: data.publication_year,
+                isbn: data.isbn,
+                image: res.data.data.display_url
+            }
+            // 
+            const bookRes = await axiosSecure.post('/books', book);
+            console.log(bookRes.data)
+            if(bookRes.data.insertedId){
+
+                reset();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${data.name} is added to the menu.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        }
+        console.log( 'with image url', res.data);
     };
-
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-       
-            Swal.fire({
-                title: "Are you sure?",
-                text: "Do You really want to donate?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Confirm!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-    
-                    axiosPublic.post('/books',formData)
-                        .then(res => {
-                            console.log(res.data.insertedId)
-                            if (res.data.acknowledged === true) {
-                                Swal.fire({
-                                    title: "Donated!",
-                                    text: `Book has been Inserted.`,
-                                    icon: "success"
-                                });
-                            }
-                        })
-                }
-            });
-     
-    };
-
-
-    console.log(categories)
 
     return (
-
-        <div className='container flex items-end justify-between border h-screen'>
-            <div className='left w-1/2 p-2 h-full '>
-                <h1 className='text-center py-5 text-2xl uppercase mx-auto w-full'>Input Necessary Information</h1>
-                <form onSubmit={handleSubmit}>
-                    <TextField
-                        type="text"
-                        variant='outlined'
-                        color='secondary'
-                        label="Book Name"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                        fullWidth
-                        required
-                        sx={{ mb: 2 }}
-                    />
-                    <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-                        <TextField
+        <div>
+          
+            <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Book Name*</span>
+                        </label>
+                        <input
                             type="text"
-                            variant='outlined'
-                            color='secondary'
-                            label="Author Name"
-                            name="author"
-                            value={formData.author}
-                            onChange={handleChange}
-                            fullWidth
+                            placeholder="Recipe Name"
+                            {...register('title', { required: true })}
                             required
-                        />
-                        <FormControl sx={{ m: 1, width: 300 }}>
-                            <InputLabel id="demo-simple-select-helper-label">Subject</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-helper-label"
-                                id="demo-simple-select-helper"
-                                value={formData.selectedOption}
-                                onChange={handleChange}
-                                label="Subject"
-                                name="subject"
-                                fullWidth
-                            >
-                                {categories.map((category) => (
-                                    <MenuItem
+                            className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Author*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Author"
+                            {...register('author', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Publication year*</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="publication_year"
+                            {...register('publication_year', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                    <div className="flex gap-6">
+                        {/* category */}
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Subject*</span>
+                            </label>
+                            <select defaultValue="default" {...register('subject', { required: true })}
+                                className="select select-bordered w-full">
+                               {categories.map((category) => (
+                                    <option
                                         key={category._id}
                                         value={category.name}
 
                                     >
                                         {category.name}
-                                    </MenuItem>
+                                    </option>
                                 ))}
-                            </Select>
-                        </FormControl>
-                    </Stack>
-                    <Stack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
-                        <TextField
-                            type="text"
-                            variant='outlined'
-                            color='secondary'
-                            label="Publication Year"
-                            name="publication_year"
-                            value={formData.publication_year}
-                            onChange={handleChange}
-                            fullWidth
-                            required
-                        />
-                        <TextField
-                            type="text"
-                            variant='outlined'
-                            color='secondary'
-                            label="ISBN"
-                            name="isbn"
-                            value={formData.isbn}
-                            onChange={handleChange}
-                            fullWidth
-                            required
-                        />
-                    </Stack>
-                    <TextField
-                        type="url"
-                        variant='outlined'
-                        color='primary'
-                        label="Image URL"
-                        name="photo"
-                        value={formData.photo}
-                        onChange={handleChange}
-                        fullWidth
-                        required
-                        sx={{ mb: 2 }}
-                    />
-                    <button type='submit' className='btn  mb-2 btn-outline w-full rounded-sm hover:bg-secondary hover:text-neutral-content'>
-                        Submit
+                            </select>
+                        </div>
+
+
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">ISBN*</span>
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="ISBN"
+                                {...register('isbn', { required: true })}
+                                className="input input-bordered w-full" />
+                        </div>
+
+                    </div>
+
+
+                    <div className="form-control w-full my-6">
+                        <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
+                    </div>
+
+                    <button className="btn">
+                        Add Book
                     </button>
                 </form>
-
-            </div>
-            <div className='right border-red-100'>
-                Right
             </div>
         </div>
     );

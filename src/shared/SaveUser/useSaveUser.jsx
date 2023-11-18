@@ -5,10 +5,10 @@
 
 //     const axiosPublic = useAxiosPublic();
 //     const saveUser = () => {
-//         // console.log(userInfo)
+
 //         axiosPublic.post('/users', userInfo)
 //             .then(res => {
-//                 // console.log(res.data);
+
 
 //             })
 //     }

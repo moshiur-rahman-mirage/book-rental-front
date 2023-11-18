@@ -12,7 +12,7 @@ import SingleBooks from '../../components/CategoryBooks/SingleBooks';
 const CategoryAllBooks = () => {
     const books = useLoaderData()
     const { _id, title, author, subject, publication_year, ISBN } = books
-    //  console.log(books)
+
 
     return (
         <div>

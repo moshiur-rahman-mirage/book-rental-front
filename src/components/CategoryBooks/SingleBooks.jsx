@@ -19,7 +19,6 @@ const SingleBooks = ({ book }) => {
     const cartUrl = '/carts'
     const { _id, title, author, isbn, publication_year, photo } = book
     const handleAddToCart = book => {
-        // console.log( user.user.email)
         if (user.user && user.user.email) {
             const cartItem = {
                 bookId: _id,

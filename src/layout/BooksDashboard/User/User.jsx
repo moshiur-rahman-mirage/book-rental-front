@@ -1,36 +1,36 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
 import CustomLoader from '../../../shared/CustomLoader/CustomLoader';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 
 
 const User = () => {
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [pending, setPending] = useState(true);
     const userUrl = '/users'
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosPublic.get(userUrl);
+            const res = await axiosSecure.get(userUrl);
             setPending(false);
             return res.data;
         }
     })
 
     const [records, setRecords] = useState(users);
-    console.log(records)
+
     // if(records.length<1){
     //     setRecords(users)
     // }
 
     const handleMakeAdmin = (name, _id) => {
-        axiosPublic.patch(`/users/admin/${_id}`)
+        axiosSecure.patch(`/users/admin/${_id}`)
             .then(res => {
-                console.log(res.data)
+            
                 if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
@@ -58,7 +58,7 @@ const User = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosPublic.delete(`/users/${id}`)
+                axiosSecure.delete(`/users/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
@@ -75,7 +75,7 @@ const User = () => {
 
 
     const handleFilter = (e) => {
-        console.log((e))
+    
         const newData = users.filter(row => {
             return row.name.toLowerCase().includes(e.target.value.toLowerCase())
         })

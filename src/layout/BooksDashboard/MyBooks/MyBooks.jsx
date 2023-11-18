@@ -6,16 +6,18 @@ import DataTable from 'react-data-table-component';
 import CustomLoader from '../../../shared/CustomLoader/CustomLoader';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const MyBooks = () => {
     const { user } = useAuth();
-    const axiosPublic = useAxiosPublic();
+    console.log(user)
+    const axiosSecure = useAxiosSecure();
     const [pending, setPending] = useState(true);
     const booksUrl = `/books?donerEmail=${user.email}`
     const { data: myDonatedBooks = [], refetch } = useQuery({
         queryKey: ['mybooks'],
         queryFn: async () => {
-            const res = await axiosPublic.get(booksUrl);
+            const res = await axiosSecure.get(booksUrl);
             setPending(false);
             return res.data;
         }
@@ -27,7 +29,6 @@ const MyBooks = () => {
     // }
 
     const handleFilter = (e) => {
-        console.log((e))
         const newData = books.filter(row => {
             return (
                 row.title.toLowerCase().includes(e.target.value.toLowerCase()) ||

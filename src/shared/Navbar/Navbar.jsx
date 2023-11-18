@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart";
  import "./Navbar.css"
 const Navbar = () => {
     const { brandName, user, logout } = useContext(AuthContext)
-    const [, cart] = useCart();
+    // const [, cart] = useCart();
 
 
     const handleSignOut = () => {
@@ -21,11 +21,13 @@ const Navbar = () => {
         <li><a className="hover:bg-secondary hover:text-neutral-content">Book List</a></li>
         <li><NavLink to="/about" className="hover:bg-secondary hover:text-neutral-content">About Us</NavLink></li>
         <li><NavLink to="/dashboard" className="hover:bg-secondary hover:text-neutral-content"  >Dashboard</NavLink></li>
+        {/* {user && 
         <li className=""><NavLink to="/request" className="hover:bg-secondary hover:text-neutral-content">Your Requests
             <div className="badge badge-secondary hover:font-semibold hover:badge-primary ">
                 <FaBookOpen />
                 +{cart.length}</div>
         </NavLink></li>
+} */}
     </>
 
     return (
@@ -51,7 +53,11 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end">
                         {user ?
-                            <button onClick={handleSignOut} className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Sign Out</button> :
+                        <>
+                            <button onClick={handleSignOut} className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Sign Out</button> 
+                            <p className="text-xl mx-2 text-neutral">{user.displayName}</p>
+                            </>
+                            :
                             <NavLink to="login" className="btn btn-primary text-neutral hover:bg-secondary hover:text-neutral-content">Login</NavLink>
                         }
                         <Switcher />

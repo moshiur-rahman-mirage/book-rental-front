@@ -16,7 +16,6 @@ const Signup = () => {
     const axiosPublic=useAxiosPublic();
     const navigate=useNavigate();
     const onSubmit = (data) => {
-        console.log(data)
         createUser(data.email, data.password)
             .then((userCredential) => {
                 updateUserProfile(data.name, data.photoUrl).then(() => {

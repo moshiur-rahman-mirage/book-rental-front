@@ -5,27 +5,26 @@ import { useQuery } from '@tanstack/react-query';
 import DataTable from 'react-data-table-component';
 import CustomLoader from '../../../shared/CustomLoader/CustomLoader';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+
 
 const Books = () => {
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [pending, setPending] = useState(true);
     const booksUrl = '/books'
     const { data: books = [], refetch } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
-            const res = await axiosPublic.get(booksUrl);
+            const res = await axiosSecure.get(booksUrl);
             setPending(false);
             return res.data;
         }
     })
 
     const [records, setRecords] = useState(books);
-    // if (records.length < 1) {
-    //     setRecords(books)
-    // }
+
 
     const handleFilter = (e) => {
-        console.log((e))
         const newData = books.filter(row => {
             return (
                 row.title.toLowerCase().includes(e.target.value.toLowerCase()) || 
@@ -48,7 +47,7 @@ const Books = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosPublic.delete(`/books/${id}`)
+                axiosSecure.delete(`/books/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
