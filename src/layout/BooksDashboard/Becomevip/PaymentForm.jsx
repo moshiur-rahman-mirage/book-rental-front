@@ -70,9 +70,14 @@ const PaymentForm = () => {
                 // save payment in db
                 const payment={
                     email:user.email,
+                    transactionId:paymentIntent.id,
                     price:totalPrice,
                     date:new Date()
                 }
+
+              const res=  axiosSecure.post('/payments',payment);
+              console.log('Payment Saved',res)
+                
             }
         }
     }
