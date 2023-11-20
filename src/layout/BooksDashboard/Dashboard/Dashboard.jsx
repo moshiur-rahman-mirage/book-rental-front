@@ -1,38 +1,38 @@
 import React from 'react';
 import MyBooks from '../MyBooks/MyBooks';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaAd, FaBook, FaBookOpen, FaCalendar, FaChartLine, FaHome, FaList, FaRegHourglass, FaSearch, FaShoppingCart, FaUser, FaUsers } from 'react-icons/fa';
+import { FaAd, FaBook, FaBookOpen, FaCalendar, FaChartLine, FaHome, FaList, FaPaypal, FaRegHourglass, FaSearch, FaShoppingCart, FaUser, FaUsers } from 'react-icons/fa';
 import "./Dashboard.css"
 import useAdmin from '../../../hooks/useAdmin';
 const Dashboard = () => {
-    const [isAdmin]=useAdmin();
+    const [isAdmin] = useAdmin();
 
     return (
         <div className='flex'>
             <div className="w-64 min-h-screen bg-primary">
                 <ul className="menu p-4">
                     {isAdmin && <>
-                    <li >
-                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/user">
-                            <FaUsers />
-                            User Access Update</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/books">
-                            <FaBookOpen />
-                            Book Management</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/statistics">
-                            <FaChartLine />
-                            Statistics</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/bookings">
-                            <FaRegHourglass />
-                            Requests</NavLink>
-                    </li>
-                    <div className="divider text-4xl text-neutral divider-neutral"></div>
+                        <li >
+                            <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/user">
+                                <FaUsers />
+                                User Access Update</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/books">
+                                <FaBookOpen />
+                                Book Management</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/statistics">
+                                <FaChartLine />
+                                Statistics</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/bookings">
+                                <FaRegHourglass />
+                                Requests</NavLink>
+                        </li>
+                        <div className="divider text-4xl text-neutral divider-neutral"></div>
                     </>}
 
                     <li>
@@ -50,7 +50,13 @@ const Dashboard = () => {
                             <FaUser />
                             Donate Book</NavLink>
                     </li>
-                   
+
+                    <li>
+                        <NavLink className='hover:bg-secondary text-neutral hover:text-neutral-content' to="/dashboard/becomevip">
+                            <FaPaypal />
+                            Become VIP</NavLink>
+                    </li>
+
                 </ul>
             </div>
 

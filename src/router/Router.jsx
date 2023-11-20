@@ -17,6 +17,7 @@ import Statistics from "../layout/BooksDashboard/Statistics/Statistics";
 import Donate from "../layout/BooksDashboard/Donate/Donate";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import Becomevip from "../layout/BooksDashboard/Becomevip/Becomevip";
 
 const axiosPublic = useAxiosPublic()
 
@@ -77,6 +78,10 @@ const Router = createBrowserRouter([
                     {
                         path:"mybooks",
                         element:<MyBooks/>
+                    },
+                    {
+                        path:"becomevip",
+                        element:<Becomevip/>
                     }
                 ]
             },
